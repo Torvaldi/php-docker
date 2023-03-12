@@ -1,0 +1,9 @@
+#!/bin/bash
+
+$nbTableFound = $(MYSQL_PWD=$DATABASE_PASSWORD mysql -u $DATABASE_USER -h $DATABASE_HOST $DATABASE_NAME -e "SELECT COUNT(TABLE_NAME) FROM information_schema.TABLES WHERE TABLE_NAME = 'Todo';")
+
+if [ $nbTableFound -eq 0 ]; then
+    MYSQL_PWD=$DATABASE_PASSWORD mysql -u $DATABASE_USER -h $DATABASE_HOST $DATABASE_NAME -e "CREATE TABLE Todo (id INT AUTO_INCREMENT PRIMARY KEY, title VARCHAR(255), done BOOLEAN);"
+fi
+
+apache2-foreground

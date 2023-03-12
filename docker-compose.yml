@@ -1,0 +1,20 @@
+services:
+  mariadb:
+    image: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: todo
+    restart: always
+
+  php_apache:
+    build: .
+    ports:
+      - "8080:80"
+    environment:
+      DATABASE_HOST: mariadb
+      DATABASE_PORT: 3306
+      DATABASE_NAME: todo
+      DATABASE_USER: root
+      DATABASE_PASSWORD: root
+volumes:
+  mariadb:
