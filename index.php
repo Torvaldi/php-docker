@@ -15,6 +15,7 @@
 
     <ul>
       <?php
+      # Les variables d'environnement sont lues ici
       $pdo = new PDO('mysql:host=' . $_ENV["DATABASE_HOST"] . ';port=' . $_ENV["DATABASE_PORT"] . ';dbname=' . $_ENV["DATABASE_NAME"] . '', $_ENV["DATABASE_USER"], $_ENV["DATABASE_PASSWORD"]);
 
       $query = $pdo->prepare('SELECT * FROM todo');

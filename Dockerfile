@@ -19,5 +19,8 @@ RUN docker-php-ext-install pdo pdo_mysql && apt update && apt install -y mariadb
 # On défini notre utilisateur comme étant www-data (pour éviter les problèmes de droits)
 USER www-data
 
+# On s'assure que le script d'entrée est exécutable
+RUN chmod +x entrypoint.sh
+
 # On défini le point d'entrée de notre image Docker
 ENTRYPOINT ["./entrypoint.sh"]

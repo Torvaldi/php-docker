@@ -1,17 +1,21 @@
 services:
+  # Base de données MariaDB
   mariadb:
     image: mariadb
-    ports:
-      - "3306:3306"
     environment:
+      # Mot de passe de l'utilisateur root
       MYSQL_ROOT_PASSWORD: root
+      # Nom de la base de données créée par défaut
       MYSQL_DATABASE: todo
-    restart: always
 
+  # Image de notre application
   php_apache:
+    # Compilation de l'image à partir du Dockerfile au même niveau
     build: .
+    # On expose le port 80 de notre container sur le port 8080 de notre machine
     ports:
       - "8080:80"
+    # On indique à Docker que notre application dépend de la base de données grâce aux variables d'environnement
     environment:
       DATABASE_HOST: mariadb
       DATABASE_PORT: 3306
