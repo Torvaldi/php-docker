@@ -1,12 +1,12 @@
-# Dockerisation d'une application Symfony
+# Dockerisation d'une application PHP
 
 ## A quoi s'attendre dans ce repo ?
 
-Le but de ce repo est de montrer comment lancer une application minimaliste Symfony dans un conteneur Docker.
+Le but de ce repo est de montrer comment lancer une application minimaliste PHP dans un conteneur Docker.
 
-Si vous lancer le repo tel quel, vous aurez une application Symfony qui tourne sur un serveur Apache dans un conteneur Docker.
+Si vous lancer le repo tel quel, vous aurez une application PHP qui tourne sur un serveur Apache dans un conteneur Docker.
 
-Vous pourrez y accéder à partir de l'URL [http://localhost:8000](http://localhost:8000).
+Vous pourrez y accéder à partir de l'URL [http://localhost:8080](http://localhost:8080).
 
 ## Commandes utiles
 
